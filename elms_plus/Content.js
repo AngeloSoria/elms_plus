@@ -8,19 +8,14 @@ function removeToggleDarkMode() {
     
             var context = darkModeButton.innerHTML;
             var find = context.toLowerCase().match("dark")
-            
-            console.log(darkModeButton)
 
             if (find != -1) {
                 dropDownMenu.removeChild(darkModeButton);
-                alert("yes 222", find)
-            } else {
-                alert("no")
             }
         } catch (error) {
             console.error(error)
         };
-    }, 2000)
+    }, 1000)
 }
 
 
