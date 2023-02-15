@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <title>eLMS+</title>
+</head>
+<body>
+    <div class="main">
+        <div class="topBar">
+            <div class="iconBar">
+                <img src="../images/STI_LOGO_for_eLMS.png" alt="Icon">
+                <h2>eLMS+</h2>
+            </div>
+            <div class="navBar">
+                <div class="iconHolder">
+                    <i id="disclaimerButton" class="bi bi-exclamation-circle-fill"></i>
+                </div>
+                <span class="disclaimerText" id="discContent">
+                    <b>DISCLAIMER</b>
+                    <hr>
+                    This is not an official STI eLMS extension.
+                </span>
+            </div>
+        </div>
+    
+        <div class="modal">
+            <div class="left">
+                <div class="Title">Theme</div>
+                <div class="Subtitle">New look, awesome experience</div>
+            </div>
+            <div class="right">
+                <select name="Themes" id="themeSelect" class="dropDown1">
+                    <option value="default" selected>Default</option>
+                    <option value="dark">Dark</option>
+                    <option value="create-new">Create new</option>
+                </select>
+            </div>
+        </div>
+    
+        <div class="modal">
+            <div class="left">
+                <div class="Title">AFK Modifier</div>
+                <div class="Subtitle">Modify the auto-logout countdown.</div>
+            </div>
+            <div class="right">
+                <select name="AFKModifier" id="afkModifierSelect" class="dropDown1">
+                    <option value="default" selected>Default (1 Hour)</option>
+                    <option value="30_minutes">30 Minutes</option>
+                    <option value="2_hours">2 Hours</option>
+                    <option value="3_hours">3 Hours</option>
+                    <option value="custom">Custom...</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="modal">
+            <div class="left">
+                <div class="Title">AFK Modifier</div>
+                <div class="Subtitle">Modify the auto-logout countdown.</div>
+            </div>
+            <div class="right">
+                <select name="AFKModifier" id="afkModifierSelect" class="dropDown1">
+                    <option value="default" selected>Default (1 Hour)</option>
+                    <option value="30_minutes">30 Minutes</option>
+                    <option value="2_hours">2 Hours</option>
+                    <option value="3_hours">3 Hours</option>
+                    <option value="custom">Custom...</option>
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+<script src="Handler.js"></script>
+<script src="../checkConnection.js"></script>
+</html>
