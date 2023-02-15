@@ -1,19 +1,26 @@
 // REMOVE "Toggle Dark Mode"
 function removeToggleDarkMode() {
-    try {
-        var dropDownButton = document.querySelector(".linksHolder.dropDownHolder");
-        var dropDownMenu = dropDownButton.lastElementChild;
-        var darkModeButton = dropDownMenu.firstElementChild;
+    setTimeout(() => {
+        try {
+            var dropDownHolder = document.querySelector(".linksHolder.dropDownHolder");
+            var dropDownMenu = dropDownHolder.querySelector(".dropDown");
+            var darkModeButton = dropDownMenu.firstElementChild;
+    
+            var context = darkModeButton.innerHTML;
+            var find = context.toLowerCase().match("dark")
+            
+            console.log(darkModeButton)
 
-        var context = darkModeButton.innerHTML;
-        var find = context.search("dark")
-
-        if (find != -1) {
-            dropDownMenu.removeChild(darkModeButton);
-        }
-    } catch (error) {
-        console.error(error)
-    };
+            if (find != -1) {
+                dropDownMenu.removeChild(darkModeButton);
+                alert("yes 222", find)
+            } else {
+                alert("no")
+            }
+        } catch (error) {
+            console.error(error)
+        };
+    }, 2000)
 }
 
 
@@ -23,20 +30,16 @@ function setTimeoutCountDown(value) {
 
     // Delayed function to wait for the cookies to load.
     setTimeout(() => {
-        //console.log(document.cookie);
-        //var cookie = document.cookie;
         var thisCookie = ['session_timeout_seconds=', 'session_timeout_countdown=']
 
         if (document.cookie.match(thisCookie[0]) && document.cookie.match(thisCookie[1])) {
             for (var index = 0; index < thisCookie.length; index++) {
                 document.cookie = thisCookie[index] + value + "; path=/;";
-                //console.log(thisCookie[index])
-                //console.log(document.cookie)
+                console.log('setTimeoutCountDown loaded.')
             }
         } else {
             console.log("setTimeoutCountDown not found. skipping...")
         }
-        console.log('setTimeoutCountDown loaded.')
     }, delay)
 }
 
@@ -44,9 +47,13 @@ function setTimeoutCountDown(value) {
 
 function notifications_sound() {
     if (self == top) {
-        var sound = new Audio('https://cdn.pixabay.com/audio/2022/11/20/audio_7a4c62d146.mp3');
-        document.body.click();
-        sound.play();
+        try {
+            var sound = new Audio('https://cdn.pixabay.com/audio/2022/11/20/audio_7a4c62d146.mp3');
+            document.body.click();
+            sound.play();
+        } catch (error) {
+            console.log(error)
+        }
     } else {
         window.parent.postMessage('{"method": "playNotificationSound", "src": "/audio/notification-2.wav"}', '*');
     }
@@ -57,4 +64,5 @@ window.onload = (event) => {
     console.log('eLMS+ Extension Loaded.')
     notifications_sound()
     setTimeoutCountDown(99999999);
+    removeToggleDarkMode()
 }

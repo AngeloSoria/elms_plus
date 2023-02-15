@@ -14,12 +14,14 @@ body{
     background-image: url(../images/NoiseBG.png);
     background-color: var(--gray1);
     width: 350px;
-    max-width: 350px;
     min-height: 100px;
     max-height: 500px;
+    max-width: 350px;
     border-top: 5px solid var(--blue);
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .main{
