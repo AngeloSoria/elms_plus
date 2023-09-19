@@ -6,3 +6,7 @@
 // });
 
 // chrome.runtime.sendMessage({request: "create_new_theme"});
+
+// chrome.runtime.onInstalled.addListener(function() {
+//     console.log(chrome.tabs);
+// });

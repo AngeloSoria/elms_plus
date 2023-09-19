@@ -13,11 +13,13 @@
         }
     ],
     "action":{
-        "default_popup": "Popup/index.html",
+        "default_popup": "/ui/popup/index.html",
         "default_title" : "Open eLMS+"
     },
     "permissions": [
-        "storage"
+        "storage",
+        "activeTab",
+        "tabs"
     ],
     "background":{
         "service_worker": "background.js"
