@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "eLMS+",
+    "description": "Enhance your eLMS experience!",
+    "version": "0.0.1",
+    "icons": {"128": "./assets/images/Icon_128.png"},
+    "content_scripts": [
+        {
+            "matches": [
+                "https://elms.sti.edu/*"
+            ],
+            "js": ["Content.js"],
+            "type": "module"
+        }
+    ],
+    "action":{
+        "default_popup": "./assets/popup/index.html",
+        "default_title" : "Open eLMS+"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "tabs",
+        "notifications"
+    ],
+    "background":{
+        "service_worker": "background.js"
+    }
+}

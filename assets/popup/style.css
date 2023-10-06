@@ -11,7 +11,7 @@
 }
 
 body{
-    background-image: url(../images/NoiseBG.png);
+    background-image: url("../images/NoiseBG.png");
     background-color: var(--gray1);
     width: 350px;
     min-height: 100px;

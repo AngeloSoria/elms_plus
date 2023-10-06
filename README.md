@@ -1,3 +1,2 @@
-# eLMS+ Chrome Extension
-
+# elms_plus
 Chrome Extension for STI College eLMS

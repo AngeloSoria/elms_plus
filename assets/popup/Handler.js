@@ -1,20 +1,15 @@
 var DisclaimerButton = document.getElementById("disclaimerButton")
 var DisclaimerText = document.getElementById("discContent");
 
-DisclaimerButton.addEventListener('mouseenter', function(){
+DisclaimerButton.addEventListener('mouseenter', function () {
     DisclaimerText.classList.add('disclaimerActive');
 });
 
 
 var isPanelOpen = false;
-DisclaimerButton.addEventListener('mouseleave', function(){
+DisclaimerButton.addEventListener('mouseleave', function () {
     DisclaimerText.classList.remove('disclaimerActive');
 });
-
-document.getElementById("btn-settings").addEventListener("click", () => {
-    openExtensionPage("settings")
-})
-
 
 async function getExtensionPageTab(url) {
     return new Promise((resolve) => {
@@ -28,24 +23,49 @@ async function getExtensionPageTab(url) {
 }
 
 async function openExtensionPage(page) {
-    const url = chrome.runtime.getURL('/ui/' + page + '/index.html');
+    const url = chrome.runtime.getURL('/assets/' + page + '/index.html');
     const extensionPageTab = await getExtensionPageTab(url);
 
-    if(extensionPageTab !== null) {
+    if (extensionPageTab !== null) {
         chrome.windows.update(extensionPageTab.windowId, {
             focused: true
         });
         window.close();
     } else {
         chrome.windows.create({
-            url, 
+            url,
             type: "popup",
-            width: 750, 
+            width: 750,
             height: 600,
         });
         window.close();
     }
 }
+
+
+document.getElementById("btn-settings").addEventListener("click", () => {
+    openExtensionPage("settings")
+
+    // Request notification permission
+    chrome.notifications.getPermissionLevel(function (permission) {
+        if (permission === "granted") {
+            // Create and display a notification
+            chrome.notifications.create({
+                type: "basic",
+                iconUrl: "icon.png",
+                title: "Hello",
+                message: "This is a notification from your extension!",
+            });
+        } else {
+            console.warn("Notification permission not granted.");
+        }
+    });
+})
+
+
+
+
+
 
 
 
